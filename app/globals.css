@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Karla:wght@400;500;600;700&family=Sen:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange: #d4621a;
+  --orange-light: #e8854a;
+  --orange-dark: #a84d12;
+  --accent: #d4621a;
+  --black: #0f0f0f;
+  /* Warm stone tones — no flat white page fills */
+  --off-white: #e5dfd4;
+  --surface: #dcd4c6;
+  --surface-soft: #ebe4d9;
+  --card: #f2ece2;
+  --marble: #e8e2d8;
+  --text: #1a1a1a;
+  --text-muted: #888888;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+[dir="rtl"] { font-family: 'Jost', 'Noto Sans Arabic', sans-serif; }
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.scroll-left { animation: scrollLeft 30s linear infinite; }
+.scroll-right { animation: scrollRight 25s linear infinite; }
+.scroll-left:hover, .scroll-right:hover { animation-play-state: paused; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.8s ease forwards; }
+
+/* Default nav links (inner pages); homepage uses Navbar dynamic styles */
+.nav-link {
+  position: relative;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--orange);
+  transition: width 0.3s ease;
+}
+.nav-link:hover { color: var(--orange); }
+.nav-link:hover::after { width: 100%; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #e0d9ce; }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
